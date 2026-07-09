@@ -1,0 +1,12 @@
+{
+  "title": "Example CISA KEV subset (illustrative)",
+  "catalogVersion": "example",
+  "vulnerabilities": [
+    {
+      "cveID": "CVE-2026-31337",
+      "vendorProject": "acme",
+      "product": "github-mcp",
+      "shortDescription": "Example known-exploited entry used by the bundled sample."
+    }
+  ]
+}

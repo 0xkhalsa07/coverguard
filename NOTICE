@@ -1,0 +1,22 @@
+coverguard
+Copyright 2026 Jagpreet Singh Bhatia
+
+This product is licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Vulnerability data sources. coverguard does not distribute vulnerability data
+with its source code, but it queries or bundles data from the following sources
+at the user's direction. If you build or redistribute a snapshot (for example
+with "coverguard refresh-vulns"), you must preserve attribution as required by
+each source's license:
+
+- OSV.dev (Open Source Vulnerabilities): data licensed under CC-BY-4.0.
+  https://osv.dev
+- GitHub Advisory Database: data licensed under CC-BY-4.0. Attribution may be
+  satisfied by linking to https://github.com/advisories or to the specific
+  advisory records used.
+- National Vulnerability Database (NVD), NIST: U.S. Government work, public
+  domain. https://nvd.nist.gov
+
+Trademarks. "Claude", "Cowork", and "Anthropic" are trademarks of Anthropic.
+This project is not affiliated with, sponsored by, or endorsed by Anthropic,
+and refers to those names only to describe interoperability.

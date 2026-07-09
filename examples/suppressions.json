@@ -1,0 +1,10 @@
+{
+  "suppressions": [
+    {
+      "rule": "R3",
+      "tool": "Bash",
+      "reason": "approved deployment automation runs Bash non-interactively",
+      "expires": "2030-01-01"
+    }
+  ]
+}

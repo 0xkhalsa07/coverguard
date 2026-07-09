@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "coverguard"
+version = "1.1.0"
+description = "CVE-aware coverage for Claude Cowork tool calls"
+readme = "README.md"
+requires-python = ">=3.8"
+license = { text = "Apache-2.0" }
+authors = [{ name = "Jagpreet Singh Bhatia", email = "301728408+0xkhalsa07@users.noreply.github.com" }]
+keywords = ["security", "cowork", "opentelemetry", "otel", "cve", "mcp", "detection", "siem"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Intended Audience :: Information Technology",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.8",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Security",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["ruff>=0.5", "bandit>=1.7", "build>=1.0", "mypy>=1.8", "coverage>=7.0"]
+
+[project.urls]
+Homepage = "https://github.com/0xkhalsa07/coverguard"
+Repository = "https://github.com/0xkhalsa07/coverguard"
+Issues = "https://github.com/0xkhalsa07/coverguard/issues"
+
+[project.scripts]
+coverguard = "coverguard.cli:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.ruff]
+line-length = 110
+target-version = "py38"
+src = ["src", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B"]
+
+[tool.ruff.lint.per-file-ignores]
+# report.py holds an inline HTML template; long markup lines are expected.
+"src/coverguard/report.py" = ["E501"]
+
+[tool.mypy]
+# Runtime supports Python 3.8+ (verified by the test matrix); mypy type-checks
+# under its default target. Kept lenient: third-party stubs are not required.
+ignore_missing_imports = true
+
+[tool.coverage.run]
+source = ["coverguard"]
+
+[tool.coverage.report]
+fail_under = 80

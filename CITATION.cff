@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+title: coverguard
+message: "If you use this software, please cite it using these metadata."
+type: software
+authors:
+  - family-names: Bhatia
+    given-names: Jagpreet Singh
+    email: 301728408+0xkhalsa07@users.noreply.github.com
+repository-code: "https://github.com/0xkhalsa07/coverguard"
+url: "https://github.com/0xkhalsa07/coverguard"
+abstract: "CVE-aware coverage for Claude Cowork tool calls. Ingests OpenTelemetry tool-call telemetry, maps invoked MCP connectors and tools to known CVEs via a pinned inventory, and reports detection coverage."
+keywords:
+  - security
+  - opentelemetry
+  - cve
+  - mcp
+  - detection
+license: Apache-2.0
+version: "1.1.0"
+date-released: "2026-07-09"

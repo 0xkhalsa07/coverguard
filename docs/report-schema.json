@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/0xkhalsa07/coverguard/blob/main/docs/report-schema.json",
+  "title": "coverguard scan report",
+  "description": "Schema for the JSON written by `coverguard scan --out-json`.",
+  "type": "object",
+  "required": ["coverage", "alerts"],
+  "properties": {
+    "coverage": {
+      "type": "object",
+      "required": ["generated_at", "pipeline_healthy", "counts", "inventory", "cve", "capability_matrix"],
+      "properties": {
+        "generated_at": {"type": "string", "format": "date-time"},
+        "pipeline_healthy": {"type": "boolean"},
+        "suppressed": {"type": "integer", "minimum": 0},
+        "counts": {"type": "object"},
+        "inventory": {
+          "type": "object",
+          "properties": {
+            "total": {"type": "integer"},
+            "with_coordinates": {"type": "integer"},
+            "match_rate_pct": {"type": ["number", "null"]},
+            "unknown_observed": {"type": "array", "items": {"type": "string"}}
+          }
+        },
+        "cve": {
+          "type": "object",
+          "properties": {
+            "scannable_pct": {"type": ["number", "null"]},
+            "vulnerable_components": {"type": "array", "items": {"type": "string"}},
+            "kev_components": {"type": "array", "items": {"type": "string"}},
+            "max_epss": {"type": ["number", "null"]},
+            "vulnerable_detail": {"type": "object"}
+          }
+        },
+        "approvals": {"type": "object"},
+        "fleet": {"type": "object"},
+        "rules": {"type": "object"},
+        "capability_matrix": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["gap", "status", "value"],
+            "properties": {
+              "gap": {"type": "string"},
+              "measure": {"type": "string"},
+              "status": {"type": "string", "enum": ["PASS", "PARTIAL", "FAIL", "REVIEW", "N/A"]},
+              "value": {"type": "string"}
+            }
+          }
+        },
+        "provenance": {"type": "object"}
+      }
+    },
+    "alerts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["rule", "severity", "detail", "user"],
+        "properties": {
+          "rule": {"type": "string"},
+          "severity": {"type": "string", "enum": ["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNKNOWN"]},
+          "component": {"type": ["string", "null"]},
+          "tool_name": {"type": ["string", "null"]},
+          "user": {"type": "string"},
+          "session_id": {"type": ["string", "null"]},
+          "prompt_id": {"type": ["string", "null"]},
+          "detail": {"type": "string"}
+        }
+      }
+    }
+  }
+}

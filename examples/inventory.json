@@ -1,0 +1,22 @@
+{
+  "components": [
+    {
+      "name": "acme-github-mcp",
+      "type": "mcp_server",
+      "ecosystem": "npm",
+      "package": "@acme/github-mcp",
+      "pinned_version": "1.2.0",
+      "owner": "platform-team",
+      "justification": "GitHub issue/PR automation for engineering"
+    },
+    {
+      "name": "files-mcp",
+      "type": "mcp_server",
+      "ecosystem": "npm",
+      "package": "@acme/files-mcp",
+      "pinned_version": "3.0.1",
+      "owner": "platform-team",
+      "justification": "Local file read for document workflows"
+    }
+  ]
+}

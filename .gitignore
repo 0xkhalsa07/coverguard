@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# coverguard reports can contain user identifiers and matched paths.
+# Never commit real scan output.
+report.html
+report.json
+*.report.json
+*.report.html
+
+# OS
+.DS_Store
+Thumbs.db

@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 560" font-family="-apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif">
+  <rect width="900" height="560" rx="10" fill="#f6f8fa"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#1f2328">coverguard scan report</text>
+  <text x="24" y="62" font-size="13" fill="#6e7781">pipeline healthy: true  &#183;  redacted: false  &#183;  preview of the HTML report (sample data)</text>
+
+  <!-- KPIs -->
+  <g font-family="inherit">
+    <g transform="translate(24,84)">
+      <rect width="132" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#1f2328">5</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">tool calls seen</text>
+    </g>
+    <g transform="translate(166,84)">
+      <rect width="132" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#1f2328">3</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">MCP components</text>
+    </g>
+    <g transform="translate(308,84)">
+      <rect width="132" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#cf222e">1</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">vulnerable</text>
+    </g>
+    <g transform="translate(450,84)">
+      <rect width="132" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#cf222e">1</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">in CISA KEV</text>
+    </g>
+    <g transform="translate(592,84)">
+      <rect width="132" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#1f2328">1</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">unknown</text>
+    </g>
+    <g transform="translate(734,84)">
+      <rect width="142" height="72" rx="8" fill="#ffffff" stroke="#d0d7de"/>
+      <text x="14" y="38" font-size="26" font-weight="700" fill="#9a6700">1/5</text>
+      <text x="14" y="58" font-size="11" fill="#57606a">auto-approved</text>
+    </g>
+  </g>
+
+  <!-- Capability coverage -->
+  <text x="24" y="192" font-size="13" font-weight="700" letter-spacing="0.5" fill="#57606a">CAPABILITY COVERAGE</text>
+  <g font-size="13" fill="#1f2328">
+    <g transform="translate(24,204)">
+      <rect width="852" height="42" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="12" width="66" height="18" rx="9" fill="#1a7f37"/>
+      <text x="47" y="25" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">PASS</text>
+      <text x="96" y="26" font-weight="600">1. Telemetry configured and flowing</text>
+    </g>
+    <g transform="translate(24,252)">
+      <rect width="852" height="42" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="12" width="66" height="18" rx="9" fill="#cf222e"/>
+      <text x="47" y="25" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">FAIL</text>
+      <text x="96" y="20" font-weight="600">2. Invoked component is identifiable and versioned</text>
+      <text x="96" y="35" font-size="11" fill="#6e7781">66.7% matched (2/3); versions come from inventory, not telemetry</text>
+    </g>
+    <g transform="translate(24,300)">
+      <rect width="852" height="42" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="12" width="66" height="18" rx="9" fill="#1a7f37"/>
+      <text x="47" y="25" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">PASS</text>
+      <text x="96" y="20" font-weight="600">3. CVE-aware detection is live</text>
+      <text x="96" y="35" font-size="11" fill="#6e7781">100% scannable (2/2); 1 vulnerable now, 1 in CISA KEV</text>
+    </g>
+    <g transform="translate(24,348)">
+      <rect width="852" height="42" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="12" width="66" height="18" rx="9" fill="#0969da"/>
+      <text x="47" y="25" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">REVIEW</text>
+      <text x="96" y="26" font-weight="600">4. Preventive posture (org-wide toggle is the only lever)</text>
+    </g>
+  </g>
+
+  <!-- Alerts -->
+  <text x="24" y="424" font-size="13" font-weight="700" letter-spacing="0.5" fill="#57606a">TOP ALERTS</text>
+  <g font-size="12.5">
+    <g transform="translate(24,436)">
+      <rect width="852" height="40" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="11" width="78" height="18" rx="9" fill="#cf222e"/>
+      <text x="53" y="24" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">CRITICAL</text>
+      <text x="104" y="25" fill="#1f2328">R1  acme-github-mcp matches CVE-2026-31337; fixed in 1.2.5; in CISA KEV</text>
+    </g>
+    <g transform="translate(24,482)">
+      <rect width="852" height="40" rx="6" fill="#ffffff" stroke="#eaeef2"/>
+      <rect x="14" y="11" width="78" height="18" rx="9" fill="#cf222e"/>
+      <text x="53" y="24" font-size="10.5" font-weight="700" fill="#ffffff" text-anchor="middle">HIGH</text>
+      <text x="104" y="25" fill="#1f2328">R2  MCP server 'sketchy-mcp' not in approved inventory</text>
+    </g>
+  </g>
+</svg>

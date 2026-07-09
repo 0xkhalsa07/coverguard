@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 470" font-family="ui-monospace, SFMono-Regular, Menlo, Consolas, monospace" font-size="12.5">
+  <rect width="900" height="470" rx="10" fill="#0d1117"/>
+  <rect width="900" height="34" rx="10" fill="#161b22"/>
+  <rect y="24" width="900" height="10" fill="#161b22"/>
+  <circle cx="20" cy="17" r="6" fill="#ff5f56"/>
+  <circle cx="40" cy="17" r="6" fill="#ffbd2e"/>
+  <circle cx="60" cy="17" r="6" fill="#27c93f"/>
+  <text x="450" y="21" fill="#8b949e" text-anchor="middle">coverguard demo</text>
+  <g>
+    <text x="20" y="66"><tspan fill="#3fb950">$</tspan><tspan fill="#c9d1d9"> coverguard scan --events events.jsonl --inventory inventory.json \</tspan></text>
+    <text x="20" y="86" fill="#c9d1d9">      --vulns vuln_snapshot.json --kev kev.json --redact --fail-on-alert</text>
+
+    <text x="20" y="120" fill="#8b949e">coverguard scan report</text>
+    <text x="20" y="138" fill="#30363d">============================================================</text>
+    <text x="20" y="160"><tspan fill="#3fb950">[PASS  ]</tspan><tspan fill="#c9d1d9"> 1. Telemetry configured and flowing</tspan></text>
+    <text x="20" y="180"><tspan fill="#f85149">[FAIL  ]</tspan><tspan fill="#c9d1d9"> 2. Invoked component identifiable and versioned  66.7%</tspan></text>
+    <text x="20" y="200"><tspan fill="#3fb950">[PASS  ]</tspan><tspan fill="#c9d1d9"> 3. CVE-aware detection is live  (1 vulnerable, 1 in CISA KEV)</tspan></text>
+    <text x="20" y="220"><tspan fill="#58a6ff">[REVIEW]</tspan><tspan fill="#c9d1d9"> 4. Preventive posture (org-wide toggle is the only lever)</tspan></text>
+
+    <text x="20" y="256" fill="#8b949e">Detection rules</text>
+    <text x="20" y="278"><tspan fill="#f85149">R1 [CRITICAL]</tspan><tspan fill="#c9d1d9"> acme-github-mcp CVE-2026-31337; fixed 1.2.5; in CISA KEV</tspan></text>
+    <text x="20" y="298"><tspan fill="#f85149">R2 [HIGH]    </tspan><tspan fill="#c9d1d9"> sketchy-mcp not in approved inventory (shadow connector)</tspan></text>
+    <text x="20" y="318"><tspan fill="#d29922">R3 [MEDIUM]  </tspan><tspan fill="#c9d1d9"> Bash auto-approved via decision_source=config</tspan></text>
+    <text x="20" y="338"><tspan fill="#d29922">R4 [MEDIUM]  </tspan><tspan fill="#c9d1d9"> app version 1.1.4000 below required 1.1.4173</tspan></text>
+    <text x="20" y="358"><tspan fill="#d29922">R5 [MEDIUM]  </tspan><tspan fill="#c9d1d9"> Read touched a path matching .ssh</tspan></text>
+    <text x="20" y="378"><tspan fill="#d29922">R6 [MEDIUM]  </tspan><tspan fill="#c9d1d9"> user_01SILENT on roster but produced no events</tspan></text>
+
+    <text x="20" y="410" fill="#c9d1d9">TOTAL ALERTS: 6    IN CISA KEV: acme-github-mcp</text>
+    <text x="20" y="434"><tspan fill="#3fb950">$</tspan><tspan fill="#c9d1d9"> echo $?  </tspan><tspan fill="#8b949e"># 1 (fail-on-alert: a HIGH/CRITICAL fired)</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,16 @@
+.git
+.github
+__pycache__/
+*.pyc
+build/
+dist/
+*.egg-info/
+.ruff_cache/
+.mypy_cache/
+.pytest_cache/
+.coverage
+report.html
+report.json
+*.report.json
+*.report.html
+.DS_Store

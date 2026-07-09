@@ -1,0 +1,79 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.8", "3.9", "3.10", "3.11", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Run tests
+        run: |
+          cd tests
+          PYTHONPATH=../src python -m unittest discover -p 'test_*.py' -v
+      - name: Smoke scan
+        run: |
+          PYTHONPATH=src python -m coverguard scan \
+            --events examples/events.jsonl \
+            --inventory examples/inventory.json \
+            --vulns examples/vuln_snapshot.json \
+            --roster examples/roster.json
+
+  quality:
+    name: lint, types, SAST, coverage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e ".[dev]"
+      - name: Ruff
+        run: ruff check src tests
+      - name: Mypy
+        run: mypy --ignore-missing-imports src
+      - name: Bandit
+        run: bandit -r src -q -c .bandit.yaml
+      - name: Coverage (fails under 80%)
+        run: |
+          cd tests
+          PYTHONPATH=../src coverage run --source=../src -m unittest discover -p 'test_*.py'
+          coverage report
+
+  docker:
+    name: docker build + scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build image
+        run: docker build -t coverguard:ci .
+      - name: Scan image (Trivy, fail on HIGH/CRITICAL with a fix)
+        uses: aquasecurity/trivy-action@0.24.0
+        with:
+          image-ref: coverguard:ci
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+          exit-code: "1"
