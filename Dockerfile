@@ -7,12 +7,12 @@
 #   docker buildx imagetools inspect python:3.12-slim   # copy the sha256
 #   FROM python:3.12-slim@sha256:<digest> AS build
 
-FROM python:3.12-slim AS build
+FROM python:3.15-slim AS build
 WORKDIR /src
 COPY . .
 RUN pip install --no-cache-dir build && python -m build --wheel --outdir /dist
 
-FROM python:3.12-slim
+FROM python:3.15-slim
 LABEL org.opencontainers.image.title="coverguard" \
       org.opencontainers.image.description="CVE-aware coverage for Claude Cowork tool calls" \
       org.opencontainers.image.source="https://github.com/0xkhalsa07/coverguard" \
